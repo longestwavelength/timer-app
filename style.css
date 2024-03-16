@@ -27,13 +27,13 @@
 }
   
 .hand {
-    transform-origin: bottom center;
-    transform: rotate(var(--degrees));
     position: absolute;
     top: 0;
     height: 4px;
     width: 4px;
     border-radius: 50%;
     background-color: aqua;
-    z-index: 1;
+    z-index: 10;
+    transform-origin: top center;
+    transform: rotate(var(--degrees));
   }

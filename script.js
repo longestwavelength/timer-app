@@ -2,6 +2,7 @@ const resetBtn = document.querySelector('#reset');
 const playBtn = document.querySelector('#play');
 const timerEl = document.querySelector('#timer');
 const root = document.querySelector(':root');
+const hand = document.querySelector('.hand');
 
 // Initial setup
 const totalSeconds = 60;
@@ -48,6 +49,7 @@ function run() {
   
     timerEl.innerText = formatTime(currentSeconds);
     root.style.setProperty('--degrees', calcDeg());
+    // moveHand();
 }
   
   // Format the time
@@ -64,6 +66,12 @@ function run() {
   function calcDeg() {
     return `${360 - (currentSeconds / totalSeconds) * 360}deg`;
   }
+
+// Move the hand around the circle
+function moveHand() {
+  const degrees = calcDeg();
+  hand.style.transform = `rotate(${degrees}) translateY(-50%)`; // Update the CSS variable directly
+}
   
   // Reset all the values
   function resetAll() {
