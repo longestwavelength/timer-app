@@ -3,6 +3,7 @@
   }
   
   .bg-conic {
+    position: relative;
     border-radius: 50%;
     width: 240px;
     height: 240px;
@@ -23,17 +24,27 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure it's above other elements */
+    z-index: 1; /* Ensure it's above other elements transform: rotate(var(--degrees));*/
 }
   
 .hand {
     position: absolute;
-    top: 0;
-    height: 4px;
-    width: 4px;
+    top: 0px;
+    height: 8px;
+    width: 8px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    transform-origin: 5px 120px;
+  }
+
+  .hand::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    height: 8px;
+    width: 8px;
     border-radius: 50%;
     background-color: aqua;
-    z-index: 10;
-    transform-origin: top center;
-    transform: rotate(var(--degrees));
+    transform: translateX(-50%);
   }
