@@ -90,3 +90,21 @@ function moveHand() {
   }
 
 
+const timerDisplay = document.querySelector('#timer');
+
+timerDisplay.addEventListener('click', () => {
+    const newTime = prompt('Enter the time in MM:SS format (e.g., 05:30):');
+    if (newTime) {
+        const [minutes, seconds] = newTime.split(':').map(num => parseInt(num));
+        if (!isNaN(minutes) && !isNaN(seconds) && minutes >= 0 && minutes <= 59 && seconds >= 0 && seconds <= 59) {
+            const totalSeconds = minutes * 60 + seconds;
+            currentSeconds = totalSeconds;
+            timerEl.innerText = formatTime(totalSeconds);
+            moveHand();
+        } else {
+            alert('Invalid input. Please enter the time in MM:SS format (e.g., 05:30) and ensure it does not exceed 59 minutes and 59 seconds.');
+        }
+    }
+});
+
+
